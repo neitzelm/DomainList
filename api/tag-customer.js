@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing email or customerId' });
   }
 
-  const domain = email;
+  const domain = email.split('@')[1].toLowerCase();
 
   try {
     // Fetch the discount domain map
