@@ -27,10 +27,10 @@ export default async function handler(req, res) {
     const tagToAdd = discountCode;
 
     // Add tag to the customer via Shopify Admin API
-    const shopifyRes = await fetch(`https://${process.env.usaparts.agriaerotech.com}/admin/api/2023-10/customers/${customerId}.json`, {
+    const shopifyRes = await fetch(`https://${process.env.SHOPIFY_STORE_URL}/admin/api/2023-10/customers/${customerId}.json`, {
       method: 'PUT',
       headers: {
-        'X-Shopify-Access-Token': process.env.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,
+        'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_TOKEN,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
